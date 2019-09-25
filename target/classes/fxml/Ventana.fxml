@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="test1.fxml.VentanaController">
+   <children>
+      <Label layoutX="14.0" layoutY="18.0" text="Problemas" />
+      <ComboBox layoutX="327.0" layoutY="14.0" prefHeight="25.0" prefWidth="346.0" />
+      
+    <fx:define>
+    <ToggleGroup fx:id="xxx" />
+    </fx:define>   
+      <RadioButton fx:id="id1" layoutX="42.0" layoutY="56.0" mnemonicParsing="false" text="squirrelPlay">
+         <toggleGroup>
+            <ToggleGroup fx:id="xxx" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="id4" layoutX="359.0" layoutY="56.0" mnemonicParsing="false" text="blackjack" toggleGroup="$xxx" />
+      <RadioButton fx:id="id5" layoutX="441.0" layoutY="56.0" mnemonicParsing="false" text="luckySum" toggleGroup="$xxx" />
+      <RadioButton fx:id="id3" layoutX="261.0" layoutY="56.0" mnemonicParsing="false" text="makeBricks" toggleGroup="$xxx" />
+      <RadioButton fx:id="id2" layoutX="139.0" layoutY="56.0" mnemonicParsing="false" text="specialEleven" toggleGroup="$xxx" />
+      <RadioButton fx:id="id6" layoutX="525.0" layoutY="56.0" mnemonicParsing="false" text="repeatSeparator" toggleGroup="$xxx" />
+      <RadioButton fx:id="id7" layoutX="650.0" layoutY="56.0" mnemonicParsing="false" text="zipZap" toggleGroup="$xxx" />
+      <RadioButton fx:id="id8" layoutX="724.0" layoutY="56.0" mnemonicParsing="false" text="centeredAverage" toggleGroup="$xxx" />
+      <RadioButton fx:id="id9" layoutX="845.0" layoutY="56.0" mnemonicParsing="false" text="has77" toggleGroup="$xxx" />
+      <RadioButton fx:id="id10" layoutX="40.0" layoutY="95.0" mnemonicParsing="false" text="topping1" toggleGroup="$xxx" />
+      <RadioButton fx:id="id11" layoutX="141.0" layoutY="95.0" mnemonicParsing="false" text="mapShare" toggleGroup="$xxx" />
+      <RadioButton fx:id="id12" layoutX="258.0" layoutY="95.0" mnemonicParsing="false" text="mapAB4" toggleGroup="$xxx" />
+      <RadioButton fx:id="id13" layoutX="351.0" layoutY="95.0" mnemonicParsing="false" text="withouEnd2" toggleGroup="$xxx" />
+      <RadioButton fx:id="id14" layoutX="449.0" layoutY="95.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$xxx" />
+      <RadioButton fx:id="id15" layoutX="545.0" layoutY="95.0" mnemonicParsing="false" text="comboString" toggleGroup="$xxx" />
+      <RadioButton fx:id="id16" layoutX="650.0" layoutY="95.0" mnemonicParsing="false" text="stringMatch" toggleGroup="$xxx" />
+      <Label layoutX="26.0" layoutY="133.0" text="Descripción" />
+      <Label layoutX="522.0" layoutY="133.0" text="Solucion" />
+      <Line endX="515.0" layoutX="477.0" layoutY="125.0" startX="-469.0" />
+      <TextArea fx:id="taDescripcion" layoutX="14.0" layoutY="157.0" prefHeight="210.0" prefWidth="466.0" />
+      <TextArea fx:id="taSolucion" layoutX="520.0" layoutY="157.0" prefHeight="210.0" prefWidth="466.0" />
+      <Button fx:id="btnChecar" layoutX="261.0" layoutY="382.0" mnemonicParsing="false" text="Checar pruebas" />
+      <Button fx:id="btnNueva" layoutX="368.0" layoutY="382.0" mnemonicParsing="false" text="Prueba nueva" />
+      <Label layoutX="29.0" layoutY="386.0" text="Pruebas" />
+      <TextArea fx:id="taPruebas" layoutX="14.0" layoutY="416.0" prefHeight="173.0" prefWidth="466.0" />
+      <TextArea fx:id="taResultados" layoutX="522.0" layoutY="416.0" prefHeight="173.0" prefWidth="466.0" />
+      <Label layoutX="522.0" layoutY="386.0" text="Resultados" />
+
+   </children>
+</AnchorPane>
