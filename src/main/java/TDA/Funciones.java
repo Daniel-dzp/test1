@@ -10,6 +10,69 @@ package TDA;
  * @author dzp
  */
 public class Funciones{
+    public String problema1()
+    {
+        return "Las ardillas en Palo Alto pasan la mayor parte del día jugando. \n" +
+"En particular, juegan si la temperatura está entre 60 y 90 (inclusive). \n" +
+"A menos que sea verano, el límite superior es 100 en lugar de 90. \n" +
+"Dada una temperatura interna y un valor booleano es Verano, \n" +
+"devuelve verdadero si las ardillas juegan y falso en caso contrario.";
+    }
+    public String resultado1()
+    {
+        return "boolean squirrelPlay(int temp, boolean isSummer) {\n" +
+"    boolean play=false;\n" +
+"    if(isSummer==true)\n" +
+"    {\n" +
+"        if(temp>=60 && temp <=100)\n" +
+"        {\n" +
+"            play = true;\n" +
+"        }\n" +
+"    }\n" +
+"    else\n" +
+"    {\n" +
+"        if(temp>=60 && temp<=90)\n" +
+"        {\n" +
+"            play = true;\n" +
+"        }\n" +
+"    }\n" +
+"\n" +
+"    return play;\n" +
+"}";
+    }
+    public boolean resolver1(int temp, boolean isSummer)
+    {
+        boolean play=false;
+        if(isSummer==true)
+        {
+            if(temp>=60 && temp <=100)
+            {
+                play = true;
+            }
+        }
+        else
+        {
+            if(temp>=60 && temp<=90)
+            {
+                play = true;
+            }
+        }
+
+        return play;
+    }
+    
+    public String pruebasString1()
+    {
+        return "squirrelPlay(70, false) → true\n" +
+"squirrelPlay(95, false) → false\n" +
+"squirrelPlay(95, true) → true";
+    }
+    
+    public String[][] pruebas1()
+    {
+        String resulados[][] = {{"70", "false", "true"},{"95", "false", "false"},{"95", "true", "true"}};
+        return resulados;
+    }
     
     public String problema4()
     {

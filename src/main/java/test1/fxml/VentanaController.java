@@ -96,6 +96,9 @@ public class VentanaController implements Initializable {
                 if(id1.isSelected())
                 {
                     System.out.println("1");
+                    taDescripcion.setText(f.problema1());
+                    taSolucion.setText(f.resultado1());
+                    taPruebas.setText(f.pruebasString1());
                 }
                 if(id2.isSelected())
                 {
@@ -197,6 +200,19 @@ public class VentanaController implements Initializable {
                 if(id1.isSelected())
                 {
                     System.out.println("1");
+                    String r[][] = f.pruebas1();
+                    int a;
+                    boolean b, c; 
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = Integer.parseInt(r[i][0]);
+                        b = Boolean.parseBoolean(r[i][1]);
+                        c = Boolean.parseBoolean(r[i][2]);
+                        if(f.resolver1(a, b) == c)
+                            taResultados.setText(taResultados.getText()+"temp="+a+" , isSummer="+b+" , resultado="+c+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"temp="+a+" , isSummer="+b+" , resultado="+f.resolver1(a, b)+" Error\n");
+                    }
                 }
                 if(id2.isSelected())
                 {
@@ -364,6 +380,16 @@ public class VentanaController implements Initializable {
                 if(id1.isSelected())
                 {
                     System.out.println("1");
+                    
+                    int a;
+                    boolean b, c;
+                    
+                    a = Integer.parseInt(JOptionPane.showInputDialog("Dame un entero (temp)"));
+                    b = Boolean.parseBoolean(JOptionPane.showInputDialog("Dame un booleano (true o false)"));
+                    
+                    c = f.resolver1(a, b);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+c);
                 }
                 if(id2.isSelected())
                 {
