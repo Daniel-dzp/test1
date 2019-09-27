@@ -7,6 +7,7 @@ package test1.fxml;
 
 import TDA.Funciones;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -118,15 +119,23 @@ public class VentanaController implements Initializable {
                 }
                 if(id6.isSelected())
                 {
-                    System.out.println("6");
+                    taDescripcion.setText(f.problema6());
+                    taSolucion.setText(f.resultado6());
+                    taPruebas.setText(f.pruebasString6());
                 }
                 if(id7.isSelected())
                 {
                     System.out.println("7");
+                    taDescripcion.setText(f.problema7());
+                    taSolucion.setText(f.resultado7());
+                    taPruebas.setText(f.pruebasString7());
                 }
                 if(id8.isSelected())
                 {
                     System.out.println("8");
+                    taDescripcion.setText(f.problema8());
+                    taSolucion.setText(f.resultado8());
+                    taPruebas.setText(f.pruebasString8());
                 }
                 if(id9.isSelected())
                 {
@@ -151,14 +160,23 @@ public class VentanaController implements Initializable {
                 if(id14.isSelected())
                 {
                     System.out.println("14");
+                    taDescripcion.setText(f.problema14());
+                    taSolucion.setText(f.resultado14());
+                    taPruebas.setText(f.pruebasString14());
                 }
                 if(id15.isSelected())
                 {
                     System.out.println("15");
+                    taDescripcion.setText(f.problema15());
+                    taSolucion.setText(f.resultado15());
+                    taPruebas.setText(f.pruebasString15());
                 }
                 if(id16.isSelected())
                 {
                     System.out.println("16");
+                    taDescripcion.setText(f.problema16());
+                    taSolucion.setText(f.resultado16());
+                    taPruebas.setText(f.pruebasString16());
                 }
                 
                 /*
@@ -204,7 +222,7 @@ public class VentanaController implements Initializable {
                         if(f.resolver4(a, b) == c)
                             taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" resultado="+c+" Correcto\n");
                         else
-                            taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" resultado="+c+" Error\n");
+                            taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" resultado="+f.resolver4(a, b)+" Error\n");
                     }
                 }
                 if(id5.isSelected())
@@ -214,14 +232,56 @@ public class VentanaController implements Initializable {
                 if(id6.isSelected())
                 {
                     System.out.println("6");
+                    
+                    String r[][] = f.pruebas6();
+                    String a, b, d; 
+                    int c;
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i][0];
+                        b = r[i][1];
+                        c = Integer.parseInt(r[i][2]);
+                        d = r[i][3];
+                        if(f.resolver6(a, b, c).equals(d))
+                            taResultados.setText(taResultados.getText()+"word="+a+" , sep="+b+" , count="+c+" resultado="+d+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"word="+a+" , sep="+b+" , count="+c+" resultado="+f.resolver6(a, b, c)+" Error\n");
+                    }
                 }
                 if(id7.isSelected())
                 {
                     System.out.println("7");
+                    String r[][] = f.pruebas7();
+                    String a, b;
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i][0];
+                        b = r[i][1];
+                        
+                        if(f.resolver7(a).equals(b))
+                            taResultados.setText(taResultados.getText()+"str="+a+" , resultado="+b+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"str="+a+" , resultado="+f.resolver7(a)+" Error\n");
+                    }
                 }
                 if(id8.isSelected())
                 {
                     System.out.println("8");
+                    int r[][] = f.pruebas8();
+                    int[] a;
+                    int b;
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i];
+                        b = a[a.length-1];
+                        a = Arrays.copyOfRange(a, 0, a.length-1);
+                        
+                        
+                        if(f.resolver8(a) == b)
+                            taResultados.setText(taResultados.getText()+"nums="+Arrays.toString(a)+" , resultado="+b+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"nums="+Arrays.toString(a)+" , resultado="+f.resolver8(a)+" Error\n");
+                    }
                 }
                 if(id9.isSelected())
                 {
@@ -246,14 +306,54 @@ public class VentanaController implements Initializable {
                 if(id14.isSelected())
                 {
                     System.out.println("14");
+                    
+                    String r[][] = f.pruebas14();
+                    String a, b, c; 
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i][0];
+                        b = r[i][1];
+                        c = r[i][2];
+                        if(f.resolver14(a, b).equals(c))
+                            taResultados.setText(taResultados.getText()+"out="+a+" , word="+b+" , resultado="+c+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"out="+a+" , word="+b+" , resultado="+f.resolver14(a, b)+" Error\n");
+                    }
                 }
                 if(id15.isSelected())
                 {
                     System.out.println("15");
+                    
+                    String r[][] = f.pruebas15();
+                    String a, b, c; 
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i][0];
+                        b = r[i][1];
+                        c = r[i][2];
+                        if(f.resolver15(a, b).equals(c))
+                            taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" , resultado="+c+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" , resultado="+f.resolver15(a, b)+" Error\n");
+                    }
                 }
                 if(id16.isSelected())
                 {
                     System.out.println("16");
+                    
+                    String r[][] = f.pruebas16();
+                    String a, b;
+                    int c; 
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i][0];
+                        b = r[i][1];
+                        c = Integer.parseInt(r[i][2]);
+                        if(f.resolver16(a, b)==c)
+                            taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" , resultado="+c+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"a="+a+" , b="+b+" , resultado="+f.resolver16(a, b)+" Error\n");
+                    }
                 }
             }     
         });
@@ -293,14 +393,45 @@ public class VentanaController implements Initializable {
                 if(id6.isSelected())
                 {
                     System.out.println("6");
+                    
+                    String a, b, d; 
+                    int c;
+                    
+                    a = JOptionPane.showInputDialog("Dame una cadena (word)");
+                    b = JOptionPane.showInputDialog("Dame una cadena (sep)");
+                    c = Integer.parseInt(JOptionPane.showInputDialog("Dame un entero (count)"));
+                    
+                    d = f.resolver6(a, b, c);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+d);
                 }
                 if(id7.isSelected())
                 {
                     System.out.println("7");
+                    
+                    String a, b;
+                    
+                    a = JOptionPane.showInputDialog("Dame una cadena (str)");
+                    b = f.resolver7(a);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+b);
                 }
                 if(id8.isSelected())
                 {
                     System.out.println("8");
+                    
+                    int a[],n,b;
+                    
+                    n = Integer.parseInt(JOptionPane.showInputDialog("Dame la longitud del array[n]"));
+                    
+                    a = new int[n];
+                    for(int i=0;i<n;i++)
+                        a[i] = Integer.parseInt(JOptionPane.showInputDialog("Dame numero"));
+                    
+                    b = f.resolver8(a);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+b);
+                    
                 }
                 if(id9.isSelected())
                 {
@@ -325,14 +456,39 @@ public class VentanaController implements Initializable {
                 if(id14.isSelected())
                 {
                     System.out.println("14");
+                    String a, b, c;
+                    
+                    a = JOptionPane.showInputDialog("Dame una cadena (out)");
+                    b = JOptionPane.showInputDialog("Dame una cadena (word)");
+                    
+                    c = f.resolver14(a, b);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+c);
                 }
                 if(id15.isSelected())
                 {
                     System.out.println("15");
+                    String a, b, c;
+                    
+                    a = JOptionPane.showInputDialog("Dame una cadena (a)");
+                    b = JOptionPane.showInputDialog("Dame una cadena (b)");
+                    
+                    c = f.resolver15(a, b);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+c);
                 }
                 if(id16.isSelected())
                 {
                     System.out.println("16");
+                    String a, b;
+                    int c;
+                    
+                    a = JOptionPane.showInputDialog("Dame una cadena (a)");
+                    b = JOptionPane.showInputDialog("Dame una cadena (b)");
+                    
+                    c = f.resolver16(a, b);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+c);
                 }
             }     
         });
