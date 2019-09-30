@@ -5,6 +5,9 @@
  */
 package TDA;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author dzp
@@ -74,6 +77,97 @@ public class Funciones{
         return resulados;
     }
     
+    public String problema2()
+    {
+        return "Digamos que un numero especial es multiplo de 11 o si es un mayor a un multiplo de 11.\n" +
+"Regresame true si el numero ingresado es espacial y false si no.";
+    }
+    public String resultado2()
+    {
+        return "public boolean specialEleven(int n) {\n" +
+"  boolean flag = false;\n" +
+"  \n" +
+"  if(n%11==0 || (n-1)%11==0)\n" +
+"    flag = true;\n" +
+" \n" +
+"  return flag;\n" +
+"  \n" +
+"}";
+    }
+    public boolean resolver2(int n)
+    {
+        boolean flag = false;
+
+        if(n%11==0 || (n-1)%11==0)
+          flag = true;
+
+        return flag;
+
+      
+    }
+    
+    public String pruebasString2()
+    {
+        return "specialEleven(22) → true\n" +
+"specialEleven(23) → true\n" +
+"specialEleven(24) → false";
+    }
+    
+    public String[][] pruebas2()
+    {
+        String resulados[][] = {{"22", "true"},{"23", "true"},{"24", "false"}};
+        return resulados;
+    }
+    
+    public String problema3()
+    {
+        return "Queremos hacer una hilera de ladrillos que tenga pulgadas de largo. \n" +
+"Tenemos varios ladrillos pequeños (1 pulgada cada uno) \n" +
+"y ladrillos grandes (5 pulgadas cada uno). Devuelve verdadero si es posible \n" +
+"lograr el objetivo eligiendo entre los ladrillos dados. \n" +
+"Esto es un poco más difícil de lo que parece y se puede hacer sin ningún bucle. \n" +
+"Ver también: Introducción a MakeBricks";
+    }
+    public String resultado3()
+    {
+        return "public boolean makeBricks(int small, int big, int goal) {\n" +
+"    boolean flag = false;\n" +
+"\n" +
+"    if(small>=(goal%5) && goal <= (small +(big*5)))\n" +
+"        flag = true;\n" +
+"\n" +
+"    return flag;\n" +
+"}";
+    }
+    public boolean resolver3(int small, int big, int goal)
+    {
+        boolean flag = false;
+
+        if(small>=(goal%5) && goal <= (small +(big*5)))
+            flag = true;
+
+        return flag;
+    }
+    
+    public String pruebasString3()
+    {
+        return "makeBricks(3, 1, 8) → true\n" +
+"makeBricks(3, 1, 9) → false\n" +
+"makeBricks(3, 2, 10) → true";
+    }
+    
+    public int[][] pruebas3()
+    {
+        int resulados[][] = {{3, 1, 8},{3, 1, 9},{3, 2, 10}};
+        return resulados;
+    }
+    
+    public boolean[] prueba3Resultados()
+    {
+        boolean r[] = {true, false, true};
+        return r;
+    }
+   
     public String problema4()
     {
         return "Dados 2 valores int mayores que 0, devuelve el valor más cercano a 21 sin pasar.\n Devuelve 0 si ambos pasan.";
@@ -126,7 +220,69 @@ public class Funciones{
         return resulados;
     }
     
+    public String problema5()
+    {
+        return "Dados 3 valores int, a b c, devuelven su suma. Sin embargo, \n" +
+"si uno de los valores es 13, \n" +
+"entonces no cuenta para la suma y los valores a su derecha no cuentan. ";
+    }
+    public String resultado5()
+    {
+        return "public int luckySum(int a, int b, int c) {\n" +
+"	int sum;\n" +
+"	if(a==13)\n" +
+"            sum=0;\n" +
+"       else\n" +
+"       {\n" +
+"            if(b==13)\n" +
+"                sum = a;\n" +
+"            else\n" +
+"            {\n" +
+"                if(c==13)\n" +
+"                    sum= a+b;\n" +
+"                else\n" +
+"                {\n" +
+"                    sum= a+b+c;\n" +
+"                }\n" +
+"            }\n" +
+"        }\n" +
+"        return sum;\n" +
+"}";
+    }
+    public int resolver5(int a, int b, int c)
+    {
+	int sum;
+	if(a==13)
+            sum=0;
+        else
+        {
+            if(b==13)
+                sum = a;
+            else
+            {
+                if(c==13)
+                    sum= a+b;
+                else
+                {
+                    sum= a+b+c;
+                }
+            }
+        }
+        return sum;
+    }
     
+    public String pruebasString5()
+    {
+        return "luckySum(1, 2, 3) → 6\n" +
+"luckySum(1, 2, 13) → 3\n" +
+"luckySum(1, 13, 3) → 1";
+    }
+    
+    public int[][] pruebas5()
+    {
+        int resulados[][] = {{1, 2, 3, 6},{1, 2, 13, 3},{1, 13, 3, 1}};
+        return resulados;
+    }
     
     public String problema6()
     {
@@ -322,6 +478,299 @@ public class Funciones{
         int resulados[][] = {{1, 2, 3, 4, 100,3},
                             {1, 1, 5, 5, 10, 8, 7,5},
                             {-10, -4, -2, -4, -2, 0,-3}};
+        return resulados;
+    }
+    
+    public String problema9()
+    {
+        return "Dada una matriz de entradas, devuelve verdadero si la matriz contiene dos 7 al lado del otro, \n" +
+"o si hay dos 7 separados por un elemento, como con {7, 1, 7}.";
+    }
+    public String resultado9()
+    {
+        return "public boolean has77(int[] nums) {\n" +
+"    boolean check = false;\n" +
+"    int found7 = 0;\n" +
+"    int cont = 0;\n" +
+"    for(int i=0;i<nums.length;i++){\n" +
+"        if(nums[i]==7 && found7 == 1 && cont<2){\n" +
+"            found7 = 0;\n" +
+"            check = true;\n" +
+"        } else if (nums[i]==7){\n" +
+"            found7 = 1;\n" +
+"        } else if(found7 == 1){\n" +
+"            cont+=1;\n" +
+"        }\n" +
+"        if(found7==1 && cont>1){\n" +
+"            found7 = 0;\n" +
+"            cont = 0;\n" +
+"        }\n" +
+"    }\n" +
+"    return check;\n" +
+"}";
+    }
+    public boolean resolver9(int[] nums)
+    {
+        boolean check = false;
+        int found7 = 0;
+        int cont = 0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==7 && found7 == 1 && cont<2){
+                found7 = 0;
+                check = true;
+            } else if (nums[i]==7){
+                found7 = 1;
+            } else if(found7 == 1){
+                cont+=1;
+            }
+            if(found7==1 && cont>1){
+                found7 = 0;
+                cont = 0;
+            }
+        }
+        return check;
+    }
+    
+    public String pruebasString9()
+    {
+        return "has77([1, 7, 7]) → true\n" +
+"has77([1, 7, 1, 7]) → true\n" +
+"has77([1, 7, 1, 1, 7]) → false";
+    }
+    
+    public int[][] pruebas9()
+    {
+        int resulados[][] = {{1, 7, 7},
+                            {1, 7, 1, 7},
+                            {1, 7, 1, 1, 7}};
+        return resulados;
+    }
+    
+    public boolean[] prueba9Resultados()
+    {
+        boolean r[] = {true, true, false};
+        return r;
+    }
+    
+    public String problema10()
+    {
+        return "Dado un mapa de claves de alimentos y valores de cobertura, \n" +
+"modifique y devuelva el mapa de la siguiente manera: \n" +
+"si la clave \"helado\" está presente, establezca su valor en \"cereza\". \n" +
+"En todos los casos, \n" +
+"configure la clave \"pan\" para que tenga el valor \"mantequilla\".";
+    }
+    public String resultado10()
+    {
+        return "public Map<String, String> topping1(Map<String, String> map) {\n" +
+"  if(map.containsKey(\"ice cream\")) {\n" +
+"    map.put(\"ice cream\", \"cherry\");\n" +
+"  }\n" +
+"  map.put(\"bread\",\"butter\");\n" +
+"  return map;\n" +
+"}";
+    }
+    public Map<String, String> resolver10(Map<String, String> map)
+    {
+        if(map.containsKey("ice cream")) {
+          map.put("ice cream", "cherry");
+        }
+        map.put("bread","butter");
+        return map;
+    }
+    
+    public String pruebasString10()
+    {
+        return "topping1({\"ice cream\": \"peanuts\"}) → {\"bread\": \"butter\", \"ice cream\": \"cherry\"}\n" +
+"topping1({}) → {\"bread\": \"butter\"}\n" +
+"topping1({\"pancake\": \"syrup\"}) → {\"bread\": \"butter\", \"pancake\": \"syrup\"}";
+    }
+    
+    public Map<String, String>[] pruebas10()
+    {
+        Map<String, String> resulados[];
+        
+        resulados = new Map[3];
+        
+        resulados[0] = new HashMap<String, String>();
+        resulados[0].put("ice cream", "peanuts");
+        
+        resulados[1] = new HashMap<String, String>();
+        
+        resulados[2] = new HashMap<String, String>();
+        resulados[2].put("pancake", "syrup");
+                
+        return resulados;
+    }
+    
+    public Map<String, String>[] prueba10Resultados()
+    {
+        Map<String, String> resulados[];
+        
+        resulados = new Map[3];
+        
+        resulados[0] = new HashMap<String, String>();
+        resulados[0].put("bread", "butter");
+        resulados[0].put( "ice cream", "cherry");
+        
+        resulados[1] = new HashMap<String, String>();
+        resulados[1].put("bread", "butter");
+        
+        resulados[2] = new HashMap<String, String>();
+        resulados[2].put("bread", "butter");
+        resulados[2].put("pancake", "syrup");
+                
+        return resulados;
+    }
+    
+    public String problema11()
+    {
+        return "Modifique y devuelva el mapa dado de la siguiente manera: si la clave \"a\" tiene un valor, \n" +
+"configure la clave \"b\" para que tenga ese mismo valor. En todos los casos, elimine la clave \"c\", \n" +
+"dejando el resto del mapa sin cambios.";
+    }
+    public String resultado11()
+    {
+        return "public Map<String, String> mapShare(Map<String, String> map) {\n" +
+"  map.remove(\"c\");\n" +
+"  if(map.containsKey(\"a\")) {\n" +
+"    map.put(\"b\", map.get(\"a\"));\n" +
+"  }\n" +
+"  return map;\n" +
+"}";
+    }
+    public Map<String, String> resolver11(Map<String, String> map)
+    {
+        map.remove("c");
+        if(map.containsKey("a")) {
+          map.put("b", map.get("a"));
+        }
+        return map;
+      
+    }
+    
+    public String pruebasString11()
+    {
+        return "mapShare({\"a\": \"aaa\", \"b\": \"bbb\", \"c\": \"ccc\"}) → {\"a\": \"aaa\", \"b\": \"aaa\"}\n" +
+"mapShare({\"b\": \"xyz\", \"c\": \"ccc\"}) → {\"b\": \"xyz\"}\n" +
+"mapShare({\"a\": \"aaa\", \"c\": \"meh\", \"d\": \"hi\"}) → {\"a\": \"aaa\", \"b\": \"aaa\", \"d\": \"hi\"}";
+    }
+    
+    public Map<String, String>[] pruebas11()
+    {
+        Map<String, String> resulados[];
+        
+        resulados = new Map[3];
+        
+        resulados[0] = new HashMap<String, String>();
+        resulados[0].put("a","aaa");
+        resulados[0].put("b","bbb");
+        resulados[0].put("c","ccc");
+        
+        resulados[1] = new HashMap<String, String>();
+        resulados[1].put("b","xyz");
+        resulados[1].put("c","ccc");
+        
+        resulados[2] = new HashMap<String, String>();
+        resulados[2].put("a","aaa");
+        resulados[2].put("c","meh");
+        resulados[2].put("d","hi");
+                
+        return resulados;
+    }
+    
+    public Map<String, String>[] prueba11Resultados()
+    {
+        Map<String, String> resulados[];
+        
+        resulados = new Map[3];
+        
+        resulados[0] = new HashMap<String, String>();
+        resulados[0].put("a","aaa");
+        resulados[0].put("b","aaa");
+        
+        resulados[1] = new HashMap<String, String>();
+        resulados[1].put("b","xyz");
+        
+        resulados[2] = new HashMap<String, String>();
+        resulados[2].put("a","aaa");
+        resulados[2].put("b","aaa");
+        resulados[2].put("d","hi");
+                
+        return resulados;
+    }
+    
+    
+    public String problema13()
+    {
+        return "Dada una cadena, si uno o los dos primeros caracteres son 'x', \n" +
+"devuelve la cadena sin esos caracteres 'x' y, \n" +
+"de lo contrario, devuelve la cadena sin cambios. \n" +
+"Esto es un poco más difícil de lo que parece.";
+    }
+    public String resultado13()
+    {
+        return "public String withoutX2(String str) {\n" +
+"    if (str.isEmpty()){\n" +
+"        return str;\n" +
+"    }\n" +
+"    if(str.equals(\"x\")){\n" +
+"        return \"\";\n" +
+"    }\n" +
+"    if (str.charAt(0) == 'x' && str.charAt(1) == 'x') {\n" +
+"        str = str.substring(2, str.length());\n" +
+"    } else {\n" +
+"        if (str.charAt(0) == 'x') {\n" +
+"            str = str.substring(1);\n" +
+"        } else {\n" +
+"            if (str.charAt(1) == 'x') {\n" +
+"                String aux = str.substring(2, str.length());\n" +
+"                String aux2 = str.substring(0, 1);\n" +
+"                str = aux2 + aux;\n" +
+"            }\n" +
+"        }\n" +
+"    }\n" +
+"\n" +
+"    return str;\n" +
+"}";
+    }
+    public String resolver13(String str)
+    {
+        if (str.isEmpty()){
+            return str;
+        }
+        if(str.equals("x")){
+            return "";
+        }
+        if (str.charAt(0) == 'x' && str.charAt(1) == 'x') {
+            str = str.substring(2, str.length());
+        } else {
+            if (str.charAt(0) == 'x') {
+                str = str.substring(1);
+            } else {
+                if (str.charAt(1) == 'x') {
+                    String aux = str.substring(2, str.length());
+                    String aux2 = str.substring(0, 1);
+                    str = aux2 + aux;
+                }
+            }
+        }
+
+        return str;
+    }
+    
+    public String pruebasString13()
+    {
+        return "withoutX2(\"xHi\") → \"Hi\"\n" +
+"withoutX2(\"Hxi\") → \"Hi\"\n" +
+"withoutX2(\"Hi\") → \"Hi\"";
+    }
+    
+    public String[][] pruebas13()
+    {
+        String resulados[][] = {{"xHi","Hi"},
+                            {"Hxi","Hi"},
+                            {"Hi","Hi"}};
         return resulados;
     }
     
