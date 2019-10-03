@@ -700,6 +700,110 @@ public class Funciones{
         return resulados;
     }
     
+    public String problema12()
+    {
+        return "Modifique y devuelva el mapa dado de la siguiente manera: si las teclas \"a\" y \"b\"\n" +
+"tienen valores que tienen diferentes longitudes, configure \"c\"\n" +
+"para que tenga el valor más largo. Si los valores existen y tienen la misma longitud, \n" +
+"cámbielos a la cadena vacía en el mapa.";
+    }
+    public String resultado12()
+    {
+        return "public Map<String, String> mapAB4(Map<String, String> map) {\n" +
+"    if(!map.containsKey(\"a\") || !map.containsKey(\"b\"))\n" +
+"    { \n" +
+"        return map;  \n" +
+"    }\n" +
+"    else if(map.get(\"a\").length() > map.get(\"b\").length())\n" +
+"    { \n" +
+"        map.put(\"c\", map.get(\"a\")); \n" +
+"    }\n" +
+"    else if(map.get(\"b\").length() > map.get(\"a\").length())\n" +
+"    { \n" +
+"        map.put(\"c\", map.get(\"b\"));  \n" +
+"    }\n" +
+"    else if(map.get(\"a\").length() == map.get(\"b\").length())\n" +
+"    { \n" +
+"        map.put(\"a\", \"\"); map.put(\"b\", \"\");  \n" +
+"    }\n" +
+"    return map;\n" +
+"}";
+    }
+    public Map<String, String> resolver12(Map<String, String> map)
+    {
+        if(!map.containsKey("a") || !map.containsKey("b"))
+        { 
+            return map;  
+        }
+        else if(map.get("a").length() > map.get("b").length())
+        { 
+            map.put("c", map.get("a")); 
+        }
+        else if(map.get("b").length() > map.get("a").length())
+        { 
+            map.put("c", map.get("b"));  
+        }
+        else if(map.get("a").length() == map.get("b").length())
+        { 
+            map.put("a", ""); map.put("b", "");  
+        }
+        return map;
+    }
+    
+    public String pruebasString12()
+    {
+        return "mapAB4({\"a\": \"aaa\", \"b\": \"bb\", \"c\": \"cake\"}) → {\"a\": \"aaa\", \"b\": \"bb\", \"c\": \"aaa\"}\n" +
+"mapAB4({\"a\": \"aa\", \"b\": \"bbb\", \"c\": \"cake\"}) → {\"a\": \"aa\", \"b\": \"bbb\", \"c\": \"bbb\"}\n" +
+"mapAB4({\"a\": \"aa\", \"b\": \"bbb\"}) → {\"a\": \"aa\", \"b\": \"bbb\", \"c\": \"bbb\"}";
+    }
+    
+    public Map<String, String>[] pruebas12()
+    {
+        Map<String, String> resulados[];
+        
+        resulados = new Map[3];
+        
+        resulados[0] = new HashMap<String, String>();
+        resulados[0].put("a","aaa");
+        resulados[0].put("b","bb");
+        resulados[0].put("c","cake");
+        
+        resulados[1] = new HashMap<String, String>();
+        resulados[1].put("a","aa");
+        resulados[1].put("b","bbb");
+        resulados[1].put("c","cake");
+        
+        resulados[2] = new HashMap<String, String>();
+        resulados[2].put("a","aa");
+        resulados[2].put("b","bbb");
+                
+        return resulados;
+    }
+    
+    public Map<String, String>[] prueba12Resultados()
+    {
+        Map<String, String> resulados[];
+        
+        resulados = new Map[3];
+        
+        resulados[0] = new HashMap<String, String>();
+        resulados[0].put("a","aaa");
+        resulados[0].put("b","bb");
+        resulados[0].put("c","aaa");
+        
+        resulados[1] = new HashMap<String, String>();
+        resulados[1].put("a","aa");
+        resulados[1].put("b","bbb");
+        resulados[1].put("c","bbb");
+        
+        resulados[2] = new HashMap<String, String>();
+        resulados[2].put("a","aa");
+        resulados[2].put("b","bbb");
+        resulados[2].put("c","bbb");
+                
+        return resulados;
+    }
+    
     
     public String problema13()
     {

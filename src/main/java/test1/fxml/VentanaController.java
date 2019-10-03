@@ -247,6 +247,9 @@ public class VentanaController implements Initializable {
                 if(id12.isSelected())
                 {
                     System.out.println("12");
+                    taDescripcion.setText(f.problema12());
+                    taSolucion.setText(f.resultado12());
+                    taPruebas.setText(f.pruebasString12());
                 }
                 if(id13.isSelected())
                 {
@@ -485,6 +488,17 @@ public class VentanaController implements Initializable {
                 if(id12.isSelected())
                 {
                     System.out.println("12");
+                    Map<String, String> r[] = f.pruebas12();
+                    Map<String, String> r2[] = f.prueba12Resultados();
+                    Map<String, String> a;
+                    for(int i=0;i<r.length;i++)
+                    {
+                        a = r[i];
+                        if(f.resolver12(a).equals(r2[i]))
+                            taResultados.setText(taResultados.getText()+"Map="+a.toString()+" , resultado="+r2[i]+" Correcto\n");
+                        else
+                            taResultados.setText(taResultados.getText()+"Map="+a.toString()+" , resultado="+f.resolver12(a).toString()+" Error\n");
+                    }
                 }
                 if(id13.isSelected())
                 {
@@ -689,6 +703,21 @@ public class VentanaController implements Initializable {
                 if(id10.isSelected())
                 {
                     System.out.println("10");
+                    Map<String, String> a = new HashMap<String, String>(), b;
+                    int n;
+                    String k, v;
+                    
+                    n = Integer.parseInt(JOptionPane.showInputDialog("Dame el numero de elementos del Map[n]"));
+                    for(int i=0;i<n;i++)
+                    {
+                        k = JOptionPane.showInputDialog("Dame key");
+                        v = JOptionPane.showInputDialog("Dame value");
+                        a.put(k,v);
+                    }
+                    
+                    b = f.resolver10(a);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+b.toString());
                 }
                 if(id11.isSelected())
                 {
@@ -713,6 +742,22 @@ public class VentanaController implements Initializable {
                 if(id12.isSelected())
                 {
                     System.out.println("12");
+                    
+                    Map<String, String> a = new HashMap<String, String>(), b;
+                    int n;
+                    String k, v;
+                    
+                    n = Integer.parseInt(JOptionPane.showInputDialog("Dame el numero de elementos del Map[n]"));
+                    for(int i=0;i<n;i++)
+                    {
+                        k = JOptionPane.showInputDialog("Dame key");
+                        v = JOptionPane.showInputDialog("Dame value");
+                        a.put(k,v);
+                    }
+                    
+                    b = f.resolver12(a);
+                    
+                    JOptionPane.showMessageDialog(null, "El resultado es "+b.toString());
                 }
                 if(id13.isSelected())
                 {
